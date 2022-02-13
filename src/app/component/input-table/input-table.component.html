@@ -1,0 +1,127 @@
+<!--<table class="qf-table" #tableRef [attr.data-id]="uuid">
+  <thead>
+    <tr>
+      <th [attr.colspan]="tableInputProperties.length + 1">
+        <div style="display: flex; white-space: nowrap; column-gap: 1rem; width: 100%; justify-content: space-between; align-items: center;">
+          <span>{{ metadata.label }}</span>
+          <button class="btn-action" style="background-color: #198754; color: white" (click)="onAdd()">
+            <span class="fa fa-plus-white"></span>
+            Add
+          </button>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="tableFormGroups.length === 0">
+        <td>No data</td>
+    </tr>
+
+    <ng-container *ngFor="let tableFormGroup of tableFormGroups; let i = index">
+      <span class="badge" (click)="onRowExpandClick(i)" [attr.data-expand-btn-index]="i">
+        <span class="fa fa-plus" style="top: 0;
+          left: -15px;
+          margin-top: -3px;
+          background-color: white;
+          border-radius: 50%;
+          width: 1.5em;
+          height: 1.5em;
+          cursor: pointer">
+        </span>
+      </span>
+
+      <tr [formArrayName]="propertyName" [attr.data-row-index]="i">
+        <ng-container [formGroupName]="i">
+          <ng-container [formGroup]="tableFormGroup">
+            <ng-container *ngFor="let tableInputProperty of tableInputProperties">
+              <td>
+                <app-input-base
+                  [attr.title]="innerErrors(tableFormGroup, tableInputProperty.propertyName)"
+                  [inputProperty]="tableInputProperty"
+                  [isSubmitClicked]="isSubmitClicked" 
+                  [form]="tableFormGroup" 
+                  [propertyName]="tableInputProperty.propertyName" 
+                  [metadata]="tableInputProperty.metadata">
+                </app-input-base>
+              </td>
+            </ng-container>
+            <td>
+              <button class="btn-action" style="border: 1px solid #dc3545" (click)="removeItem(i)">
+                <span class="btn-action-text"></span>
+                <span class="fa fa-times"></span>
+              </button>
+            </td>
+          </ng-container>
+        </ng-container>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>-->
+
+<div class="table-container qf-table" [attr.data-id]="uuid" #tableRef role="table">
+  <div class="flex-table header">
+    <div class="flex-row" style="justify-content: space-between; display: flex; align-items: center; white-space: nowrap; text-transform: uppercase;">
+      <span>{{ metadata.label }}</span>
+      <button class="btn-action" style="border-color: #198754; background-color: #198754; color: white" (click)="onAdd()">
+        <span class="fa fa-plus-white"></span>
+        Add
+      </button>
+    </div>
+  </div>
+
+  <ng-container *ngFor="let tableFormGroup of tableFormGroups; let i = index">
+    <div class="flex-table row qf-table-row">
+      <span class="badge" (click)="onRowExpandClick(i)" [attr.data-expand-btn-index]="i">
+        <span class="fa fa-plus" style="
+          top: 0;
+          left: -15px;
+          margin-top: -3px;
+          background-color: white;
+          border-radius: 50%;
+          width: 1.5em;
+          height: 1.5em;
+          cursor: pointer">
+        </span>
+      </span>
+      <ng-container [formArrayName]="propertyName">
+        <ng-container [formGroupName]="i">
+          <ng-container [formGroup]="tableFormGroup">
+            <ng-container *ngFor="let tableInputProperty of tableInputProperties">
+              <div class="flex-row qf-table-column" 
+                   [ngStyle]="{width: getColumnWidth(shownItemsCount, i)}">
+                <app-input-base
+                  [attr.title]="innerErrors(tableFormGroup, tableInputProperty.propertyName)"
+                  [inputProperty]="tableInputProperty"
+                  [isSubmitClicked]="isSubmitClicked" 
+                  [form]="tableFormGroup" 
+                  [propertyName]="tableInputProperty.propertyName" 
+                  [metadata]="tableInputProperty.metadata">
+                </app-input-base>
+              </div>
+            </ng-container>
+            <div class="flex-row flex-row-action qf-table-column">
+              <button class="btn-action" (click)="removeItem(i)">
+                <span class="fa fa-trash-white"></span>
+              </button>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+
+
+  <!--<div class="flex-table row" role="rowgroup">
+    <div class="flex-row" role="cell">United Kingdom</div>
+    <div class="flex-row" role="cell">Stonehenge, Windsor and Bath with Pub Lunch </div>
+    <div class="flex-row" role="cell">19 Sep, 1p.m.</div>
+    <div class="flex-row" role="cell">US$500</div>
+  </div>
+
+  <div class="flex-table row" role="rowgroup">
+    <div class="flex-row"  role="cell">Canada</div>
+    <div class="flex-row" role="cell">Vancouver to Victoria and Butchart Gardens Tour </div>
+    <div class="flex-row" role="cell">23 Sep, 1:30p.m.</div>
+    <div class="flex-row" role="cell">US$387</div>
+  </div>-->
+</div>

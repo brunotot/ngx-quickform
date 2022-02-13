@@ -1,0 +1,10 @@
+<div class="qf-label-group">
+  <input *ngIf="metadata.type === TextType.TEXT" [class]="validationClass" type="text" [formControlName]="propertyName" placeholder=" " />
+  <input *ngIf="metadata.type === TextType.PASSWORD" [class]="validationClass.concat(' password-input')" [attr.type]="passwordShown ? 'text' : 'password'" [formControlName]="propertyName" placeholder=" " />
+  <input *ngIf="metadata.type === TextType.NUMBER" [class]="validationClass" type="number" [formControlName]="propertyName" placeholder=" " />
+  <textarea *ngIf="metadata.type === TextType.TEXTAREA" [class]="validationClass" type="text" [formControlName]="propertyName" placeholder=" "></textarea>
+  <label>{{ metadata.label }}</label>
+  <div *ngIf="metadata.type === TextType.PASSWORD" class="password-icon-wrapper" (click)="onPasswordShowClick()">
+    <span title="Password" [ngClass]="'fa input-icon password '.concat(passwordShown ? 'fa-slash-eye' : 'fa-eye')"></span>
+  </div>
+</div>

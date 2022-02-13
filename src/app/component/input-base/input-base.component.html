@@ -1,0 +1,27 @@
+<app-input-text *ngIf="inputProperty.inputType === InputType.TEXT"
+  [isSubmitClicked]="isSubmitClicked" 
+  [form]="form" 
+  [propertyName]="inputProperty.propertyName" 
+  [metadata]="inputProperty.metadata">
+</app-input-text>
+
+<app-input-checkbox *ngIf="inputProperty.inputType === InputType.CHECKBOX"
+  [isSubmitClicked]="isSubmitClicked" 
+  [form]="form" 
+  [propertyName]="inputProperty.propertyName" 
+  [metadata]="inputProperty.metadata">
+</app-input-checkbox>
+
+<app-input-select *ngIf="inputProperty.inputType === InputType.SELECT"
+  [isSubmitClicked]="isSubmitClicked" 
+  [form]="form" 
+  [propertyName]="inputProperty.propertyName" 
+  [metadata]="inputProperty.metadata">
+</app-input-select>
+
+<app-input-table *ngIf="inputProperty.inputType === InputType.TABLE"
+  [isSubmitClicked]="isSubmitClicked" 
+  [form]="form" 
+  [propertyName]="inputProperty.propertyName" 
+  [metadata]="inputProperty.metadata">
+</app-input-table>

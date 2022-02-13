@@ -1,0 +1,27 @@
+<form class="qf-form" *ngIf="inputProperties.length > 0 && form" [formGroup]="form">
+  <h2 *ngIf="title">{{ title }}</h2>
+
+  <div *ngFor="let inputProperty of inputProperties" class="qf-form-row">
+    <div class="qf-form-input-container">
+      <app-input-base
+        [inputProperty]="inputProperty"
+        [isSubmitClicked]="isSubmitClicked" 
+        [form]="form" 
+        [propertyName]="inputProperty.propertyName" 
+        [metadata]="inputProperty.metadata">
+      </app-input-base>
+    </div>
+
+    <ng-container *ngFor="let errors of [errors(inputProperty.propertyName)]">
+      <div *ngIf="isSubmitClicked && errors.length > 0" class="qf-form-validation">
+        <span *ngFor="let error of errors">
+          {{ error }}
+        </span>
+      </div>
+    </ng-container>
+  </div>
+
+  <button type="button" class="qf-btn qf-btn-primary qf-btn-submit" (click)="submit()">
+    Submit
+  </button>
+</form>

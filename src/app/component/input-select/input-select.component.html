@@ -1,0 +1,23 @@
+<div class="qf-label-group">
+  <ng-select *ngIf="isAjax"
+    [items]="(items$ | async)! | selectOptionAdapter : optionAdapter"
+    bindLabel="text"
+    bindValue="id"
+    [multiple]="isMultiple"
+    (change)="onChange($event)"
+    [class]="validationClass.concat(' qf-select', (hasValue ? ' qf-has-value' : ''))"
+    [formControlName]="propertyName">
+  </ng-select>
+
+  <ng-select *ngIf="!isAjax"
+    [items]="items"
+    bindLabel="text"
+    bindValue="id"
+    [multiple]="isMultiple"
+    (change)="onChange($event)"
+    [class]="validationClass.concat(' qf-select', (hasValue ? ' qf-has-value' : ''))"
+    [formControlName]="propertyName">
+  </ng-select>
+
+  <label>{{ metadata.label }}</label>
+</div>

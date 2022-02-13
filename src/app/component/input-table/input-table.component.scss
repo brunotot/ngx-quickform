@@ -1,0 +1,86 @@
+.btn-action {
+  display: inline-block;
+  font-weight: 400;
+  color: #858796;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}
+
+.btn-action:hover {
+  cursor: pointer;
+}
+
+$table-header: #e7e7e7;
+$table-header-border: #8d8282;
+$table-border: #e7e7e7;
+$row-bg: #f4f2f1;
+
+.table-container {
+  display: block;
+}
+
+.flex-table {
+  display: flex;
+  flex-flow: row wrap;
+  border-left: solid 1px $table-border;
+  transition: 0.5s;
+  &:first-of-type {
+    border-top: solid 1px $table-header-border;
+    border-left: solid 1px $table-header-border;
+  }
+  &:first-of-type .flex-row {
+    background: $table-header;
+    color: #000;
+    border-color: $table-header-border;
+  }
+}
+
+.qf-table-row {
+  position: relative;
+}
+
+.badge {
+  border-bottom-right-radius: 50rem!important;
+  position: absolute;
+  display: inline-block;
+  z-index: 1;
+  padding: 2px 6px;
+  font-size: .75em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.flex-table.header .flex-row {
+  width: 100% !important;
+}
+
+.flex-row {
+  padding: 0.5em 0.5em;
+  border-right: solid 1px $table-border;
+  border-bottom: solid 1px $table-border;
+  text-align: center;
+}
+
+.flex-row-action {
+  flex: none;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative
+}
